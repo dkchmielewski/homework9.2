@@ -1,7 +1,7 @@
 public class Vehicle {
-    String name;
-    int tankCapacity;
-    double consumption;
+    private String name;
+    private int tankCapacity;
+    private double consumption;
 
     public Vehicle(String name, int tankCapacity, double consumption) {
         this.name = name;
@@ -9,12 +9,15 @@ public class Vehicle {
         this.consumption = consumption;
     }
 
-    public double range(Vehicle vehicle) {
-        double range = tankCapacity/consumption;
+    public double range() {
+        double range = tankCapacity/totalConsumption() * 100;
         return range;
     }
 
-    @Override
+    public double totalConsumption() {
+        return consumption;
+    }
+
     public String toString() {
         return "Vehicle{" +
                 "name='" + name + '\'' +
@@ -22,4 +25,17 @@ public class Vehicle {
                 ", consumption=" + consumption +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getTankCapacity() {
+        return tankCapacity;
+    }
+
+    public double getConsumption() {
+        return consumption;
+    }
+
 }
