@@ -5,16 +5,21 @@ public class Truck extends Car{
         super(name, tankCapacity, consumption, isAcOn);
         this.load = load;
     }
-    public void isOn(Truck truck) {
-        truck.consumption = 0.8;
-    }
-    public void isOff(Truck truck) {
-        truck.consumption = 1.2;
-    }
 
     public void extraLoad(Truck truck) {
         load = truck.load + 100;
         truck.consumption += 0.5;
+    }
+
+    @Override
+    public double range(Vehicle vehicle) {
+        double range = 0.0;
+        if (isAcOn) {
+            range = tankCapacity / consumption;
+            return range;
+        } else
+            range = tankCapacity / consumption - 0.2;
+            return range;
     }
 
     @Override

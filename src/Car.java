@@ -6,14 +6,17 @@ public class Car extends Vehicle{
         this.isAcOn = isAcOn;
     }
 
-
-    public void isOn(Car car) {
-        car.consumption = 0.8;
+    @Override
+    public double range(Vehicle vehicle) {
+        double range = 0.0;
+        if (isAcOn) {
+            range = tankCapacity / consumption;
+            return range;
+        } else if (isAcOn = false) {
+            range = tankCapacity / consumption - 0.2;
+        }
+        return range;
     }
-    public void isOff(Car car) {
-        car.consumption = 0.6;
-    }
-
     @Override
     public String toString() {
         return super.toString() +
